@@ -11,19 +11,27 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">User</th>
+      <th scope="col">Number of Tokens</th>
+      <th scope="col">Timestamp</th>
+      <th scope="col">Bid Price</th>
+      <th scope="col">Bid Status</th>
     </tr>
   </thead>
   <tbody>
+    {% for record in bids %}
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row">{{record.userid}}</th>
+      <td>{{record.number_of_tokens}}</td>
+      <td>{{record.timestamp}}</td>
+      <td>$ {{record.bidding_price}}</td>
+      {% if {{record.successful}}  %}
+      <td><p style="color: darkgreen;"> {{record.successful}}</p>  </td>
+      {% else %}  
+      <td><p style="color:red;"> {{record.successful}}</p>  </td>
+      {% endif %}
     </tr>
+   {% endfor %}
    
   </tbody>
 </table>
