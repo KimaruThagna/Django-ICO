@@ -3,6 +3,11 @@ from django.shortcuts import render
 # Create your views here.
 
 
-def home(request):
+def bid_data(request):
     con = {}
-    return render(request, 'ico/index.html', context=con)
+    return render(request, 'ico/bid_data.html', context=con)
+
+
+def user_data(request):
+    con = {}
+    return render(request, 'ico/user_data.html', context=con)
