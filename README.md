@@ -1,7 +1,9 @@
 # ICO in Django
 The project demonstrates an ICO by triggering bids via a dummy operator. Once the bid window closes, the `token_assignment()` executes the auction logic which is as follows
 ## Auction Logic: Approach and Compromises
-The maximum number of tokens a user can place in a bid is 1% of the total treasury supply. This prevents very large bids that might _hoard_ and not allow other bid participants to participate
+Bidding window is set in minutes. Before every bid is commited to the database, it is checked against the bid window by use of `pre_save()` Django signals. Only bids submitted before the end of the biding window will be considered
+
+The maximum number of tokens a user can place in a bid is 1% of the total treasury supply it also allows the maximization of the possibility of all bids being fulfilled. This prevents very large bids that might _hoard_ and not allow other bid participants to participate
 
 Precedence is given to the highest bidder. They are given the total number of tokens they requested.
 
