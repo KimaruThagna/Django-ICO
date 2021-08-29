@@ -1,0 +1,3 @@
+
+class InsufficientFundsInTreasuryException(Exception):
+    pass

@@ -7,7 +7,7 @@
 
 
 <h3> User Data</h3>
-
+{% if users %}
 <table class="table table-hover">
   <thead>
     <tr>
@@ -32,5 +32,7 @@
    {% endfor %}
   </tbody>
 </table>
-
+{% else %}
+<p> No User data</p>
+{% endif %}
 {% endblock %}
