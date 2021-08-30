@@ -45,19 +45,15 @@ def token_assignment():
         # give the max bid the number of tokens they bid for
         max_bid_price = Bid.objects.aggregate(Max('bidding_price'))['bidding_price__max']
         max_bid = Bid.objects.filter(bidding_price=max_bid_price)
-        print(f"number of max{len(max_bid)}, max value {max_bid_price}")
         for bid in max_bid: # could be a single item or list of bids with max price
-            print(bid.userid.name)
             bid.userid.update_token_balance(bid.number_of_tokens)
             bid.qualify_bid()
         # award tokens to the rest of the bids
         
-        remaining_bids = Bid.objects.exclude(id__in=[bid.id for bid in max_bid]).order_by('timestamp', '-bidding_price')
-        print(f'remaining bids {len(remaining_bids)}')
-        while treasury.treasury_supply > 0 : # go on as long as supply exists
-            for bid in remaining_bids:
-                bid.userid.update_token_balance(bid.number_of_tokens)
-                bid.qualify_bid()
+        remaining_bids = Bid.objects.exclude(id__in=[bid.id for bid in max_bid]).order_by('timestamp', '-bidding_price')    
+        for bid in remaining_bids:
+            bid.userid.update_token_balance(bid.number_of_tokens)
+            bid.qualify_bid()
                 
                 
         

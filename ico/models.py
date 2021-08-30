@@ -27,13 +27,11 @@ class Users(models.Model):
         if treasury.treasury_supply > amount: 
             # deduct tokens from treasury
             treasury.treasury_supply -= amount
-            self.token_balance += amount
+            treasury.save()
+            self.token_balance += amount #grant tokens
             self.save()
-            
-            
-                #grant tokens
+                
         else: # rare case when the treasury cant satisfy an order
-            print(treasury.treasury_supply,"<< supply")
             raise InsufficientFundsInTreasuryException('Treasury is out of Funds')
         
     

@@ -8,8 +8,8 @@ treasury = TreasuryConfig.objects.get(id=settings.TREASURY_CONFIG)
 def bid_data(request):
     con = {
         "bids": Bid.objects.all(),
-        "window": settings.BID_WINDOW,
-        "balance": treasury.treasury_supply,
+       "window": treasury.bid_window,
+       "balance": treasury.treasury_supply,
     }
     return render(request, 'ico/bid_data.html', context=con)
 

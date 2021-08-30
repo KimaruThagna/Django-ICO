@@ -6,3 +6,4 @@ class IcoConfig(AppConfig):
     
     def ready(self):
         import ico.signals
+        
