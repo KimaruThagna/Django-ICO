@@ -1,5 +1,5 @@
 # ICO in Django
-The project demonstrates an ICO by triggering bids via a dummy operator. Once the bid window closes, the `token_assignment()` executes the auction logic which is as follows
+The project demonstrates an ICO by triggering bids via a dummy operator. Once the bid window closes, the `token_assignment()`, a scheduled background task that runs after the `bid_window`,  executes the auction logic which is as follows
 ## Auction Logic: Approach and Compromises
 To simulate an actual bidding process, I have incorporated randomized `time.sleep()` to allow bid data to be added at different times with pauses in between records. This allows me to later on sort the bids by the time they were placed. The pauses are from 1 to 10 seconds for simulation purposes. In a real world situation, this would not be the case. The pauses therefore means that the bidding process will take some time before the application is fully functional and data is available.
 
