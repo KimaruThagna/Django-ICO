@@ -15,10 +15,15 @@ services:
     command: sh -c "python manage.py collectstatic --noinput &&
                     python manage.py data_ingestion &&
                     gunicorn DJango_ICO.wsgi:application --bind 0.0.0.0:8000"
-    
+    volumes:
+      - .:/microservice:rw 
+      - static_volume:/home/app/microservice/static
     image: web-service
 
     expose:
       - 8000
     restart: "on-failure"
     
+volumes:
+  static_volume:
+

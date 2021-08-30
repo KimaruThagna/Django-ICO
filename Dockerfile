@@ -22,7 +22,6 @@ RUN pip install --upgrade pip
 # copy project
 COPY . $MICRO_SERVICE
 RUN pip install -r requirements.txt
-COPY ./entrypoint.sh $MICRO_SERVICE
 
 # chown all the files to the app user
 RUN chown -R $APP_USER:$APP_USER $MICRO_SERVICE
