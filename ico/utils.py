@@ -5,6 +5,7 @@ from faker import Faker
 from .models import Users, Bid, TreasuryConfig
 from django.db.models import Max
 import logging
+
 faker = Faker()
 
 treasury = TreasuryConfig.objects.get(id=settings.TREASURY_CONFIG)

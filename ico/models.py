@@ -19,7 +19,7 @@ class Users(models.Model):
     registration_date = models.DateTimeField(auto_now_add=True)
     token_balance = models.FloatField(default=0.0)
     
-    def __str__(self) -> str:
+    def __str__(self):
         return self.name
     
     def update_token_balance(self, amount):
