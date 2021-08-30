@@ -5,7 +5,7 @@ def data_prep():
     generate_user_records()
     generate_bid_records()
     bid_records_same_price()
-    token_assignment()
+    token_assignment() # will be a scheduled task
     
     
 class Command(BaseCommand):

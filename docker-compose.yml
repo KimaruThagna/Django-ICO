@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    volumes:
+      - static_volume:/home/app/microservice/static
+    depends_on:
+      - web
+    restart: "on-failure"
+  web:
+    build: . #build the image for the web service from the dockerfile in parent directory
+    command: sh -c "python manage.py collectstatic --noinput &&
+                    python manage.py data_ingestion &&
+                    gunicorn DJango_ICO.wsgi:application --bind 0.0.0.0:8000"
+    
+    image: web-service
+
+    expose:
+      - 8000
+    restart: "on-failure"
+    

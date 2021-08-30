@@ -5,7 +5,7 @@ from faker import Faker
 from .models import Users, Bid, TreasuryConfig
 from django.db.models import Max
 import logging
-
+from background_task import background
 faker = Faker()
 
 treasury = TreasuryConfig.objects.get(id=settings.TREASURY_CONFIG)
@@ -40,6 +40,7 @@ def bid_records_same_price(number_of_records=2):
         #so to allow sorting out by time
         Bid.objects.create(**data)
 
+@background(schedule=time.timedelta(minutes=treasury.bid_window))
 def token_assignment():
         
         logging.info(">>>>>>>>>>Executing Auction Logic on Bids")
