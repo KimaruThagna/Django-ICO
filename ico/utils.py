@@ -4,7 +4,7 @@ from faker import Faker
 from models import Users, Bid
 from django.conf import settings
 from django.db.models import Max
-from exceptions import InsufficientFundsInTreasuryException
+
 faker = Faker()
 
 

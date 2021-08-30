@@ -1,6 +1,6 @@
-{% extends "base.html" %} 
+{% extends "ico/base.html" %} 
 {% block title %}
-{{ User Data }}
+ User Data
 {% endblock  %} 
 
 {% block content %}
@@ -23,7 +23,7 @@
       <th scope="row">{{record.name}}</th>
       <td>{{record.registration_date}}</td>
       <td>{{record.token_balance}}</td>
-      {% if {{record.token_balance}} == 0 %}
+      {% if record.token_balance == 0 %}
       <td><p style="color: red;"> Unsucessful</p>  </td>
       {% else %}  
       <td><p style="color:darkgreen"> Sucessful</p>  </td>

@@ -1,6 +1,6 @@
-{% extends "base.html" %} 
+{% extends "ico/base.html" %} 
 {% block title %}
-{{ Bid Data }}
+ Bid Data
 {% endblock %} 
 
 {% block content %}
@@ -25,7 +25,7 @@
       <td>{{record.number_of_tokens}}</td>
       <td>{{record.timestamp}}</td>
       <td>$ {{record.bidding_price}}</td>
-      {% if {{record.successful}}  %}
+      {% if record.successful  %}
       <td><p style="color: darkgreen;"> {{record.successful}}</p>  </td>
       {% else %}  
       <td><p style="color:red;"> {{record.successful}}</p>  </td>

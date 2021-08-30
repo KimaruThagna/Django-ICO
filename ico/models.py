@@ -1,5 +1,5 @@
 from django.db import models
-from exceptions import InsufficientFundsInTreasuryException
+from ico.exceptions import InsufficientFundsInTreasuryException
 from django.conf import settings
 
 # Create your models here.
