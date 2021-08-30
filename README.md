@@ -39,4 +39,7 @@ All the rest of the bids are fulfilled in a round robin fashion, assigning 1 tok
 This approach however does not guarantee the existence of unsuccessful bids or users, which is anticipated(expected in a real auction), because each bid is fulfilled in a round robin fashion. The only way it can occur is if the max bidder is awarded a large amount of tokens and the remaining bids are a huge number such that the last bidders may not get a single token due to insufficient treasury funds.
 
 # Running the Project
-The project is dockerized. Run `docker-compose up` and navigate to 0.0.0.0:8000 on the browser
+1. Install dependencies py running the command `pip3 install -r requirements.txt`
+2. Run the data ingestion management command `python3 manage.py data_ingestion`
+3. Run the task processing command `python manage.py process_tasks`
+4. On a separate terminal, Run the server `python3 manage.py runserver` and navigate to http://127.0.0.1:8000 for bids and http://127.0.0.1:8000/users/ for user data. To see results, refresh after 4 minutes since the auction logic is executed after the bid window closes.
