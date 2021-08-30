@@ -120,8 +120,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-BID_WINDOW = 3
-TREASURY_SUPPLY = 1000
-TOKEN_MAX_PER_BID = 0.01*TREASURY_SUPPLY # can only bid upto 1% of treasury amount
-TOKEN_MAX_PRICE = 100
+TREASURY_CONFIG = 1

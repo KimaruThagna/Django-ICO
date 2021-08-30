@@ -21,7 +21,7 @@
   <tbody>
     {% for record in bids %}
     <tr>
-      <th scope="row">{{record.userid}}</th>
+      <th scope="row">{{record.userid.name}}</th>
       <td>{{record.number_of_tokens}}</td>
       <td>{{record.timestamp}}</td>
       <td>$ {{record.bidding_price}}</td>
