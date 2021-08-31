@@ -40,6 +40,6 @@ This approach however does not guarantee the existence of unsuccessful bids or u
 
 # Running the Project
 1. Install dependencies py running the command `pip3 install -r requirements.txt`
-2. Run the data ingestion management command `python3 manage.py data_ingestion`
-3. Run the task processing command `python manage.py process_tasks`
-4. On a separate terminal, Run the server `python3 manage.py runserver` and navigate to http://127.0.0.1:8000 for bids and http://127.0.0.1:8000/users/ for user data. To see results, refresh after 4 minutes since the auction logic is executed after the bid window closes.
+2. Run the task processing command `python manage.py process_tasks`
+3. Run the data ingestion management command `python3 manage.py data_ingestion`
+4.  On a separate terminal, Run the server `python3 manage.py runserver` and navigate to http://127.0.0.1:8000 for bids and http://127.0.0.1:8000/users/ for user data. To see results, refresh after 4 minutes since the auction logic is executed after the bid window closes. 

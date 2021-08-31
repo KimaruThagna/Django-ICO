@@ -42,7 +42,7 @@ def bid_records_same_price(number_of_records=2):
         #so to allow sorting out by time
         Bid.objects.create(**data)
 
-@background(schedule=timedelta(minutes=treasury.bid_window))
+@background(schedule=240) # run after 4 min by default
 def token_assignment():
         
         logging.info(">>>>>>>>>>Executing Auction Logic on Bids")
